@@ -21,7 +21,7 @@ class PostSeeder extends AbstractSeed
             $data[] = [
                 'title' => $faker->word,
                 'body' => $faker->text(250),
-                'id_user' => 11,
+                'idUser' => 11,
                 'created_at' => date('Y-m-d H:i:s')
             ];
         }

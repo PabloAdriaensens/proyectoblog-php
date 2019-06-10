@@ -4,7 +4,6 @@ namespace App\controllers;
 
 use App\models\entities\Post;
 use App\services\PostsService;
-use Kint\Kint;
 
 class HomeController extends Controller
 {
