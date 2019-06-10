@@ -7,7 +7,6 @@ use DI\Container;
 use App\LogManager;
 use App\SessionManager;
 use App\services\UsersService;
-use Kint\Kint;
 
 abstract class ControllerAuth
 {
@@ -40,7 +39,6 @@ abstract class ControllerAuth
         $usersService = $this->container->get(UsersService::class);
         $id = $this->sessionManager->get('user');
         if (!$id) return $this->redirectTo('login');
-        Kint::dump($id);
         $this->user = $usersService->getUserById($id);
         if (!$this->user) return $this->redirectTo('login');
     }
