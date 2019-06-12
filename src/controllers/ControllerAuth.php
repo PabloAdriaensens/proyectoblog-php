@@ -6,7 +6,6 @@ use App\ViewManager;
 use DI\Container;
 use App\LogManager;
 use App\SessionManager;
-use App\services\UsersService;
 
 abstract class ControllerAuth
 {
@@ -36,7 +35,6 @@ abstract class ControllerAuth
 
     public function auth()
     {
-        $usersService = $this->container->get(UsersService::class);
         $this->user = $this->sessionManager->get('user');
         if (!$this->user) return $this->redirectTo('login');
     }

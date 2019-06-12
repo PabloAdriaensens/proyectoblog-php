@@ -16,7 +16,11 @@
         }
     },
     "scripts": {
-        "start": "php -S localhost:5000 -t=public",
-        "kill":"pid=$(ps -fe | grep '[p]rocess name' | awk '{print $2}')"
+        "start": "@composer delete-cache && php -S localhost:5000 -t=public",
+        "kill":"pid=$(ps -fe | grep '[p]rocess name' | awk '{print $2}')",
+        "delete-cache": "if [ -d 'cache/views' ]; then rm -r cache/views; fi"
+    },
+    "config": {
+        "process-timeout": 0
     }
 }
