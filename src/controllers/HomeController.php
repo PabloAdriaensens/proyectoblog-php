@@ -4,14 +4,15 @@ namespace App\controllers;
 
 use App\models\entities\Post;
 use App\services\PostsService;
-
-class HomeController extends Controller
+use Kint;
+class HomeController extends ControllerAuth
 {
 
     public function index()
     {
         $PostsService = $this->container->get(PostsService::class);
         $posts = $PostsService->getPosts();
-        $this->viewManager->renderTemplate("index.view.html", ['posts' => $posts]);
+        Kint::dump($this->user);
+        $this->viewManager->renderTemplate("index.view.html", ['posts' => $posts, 'user' => (!$this->user)?null:$this->user->email]);
     }
 }
